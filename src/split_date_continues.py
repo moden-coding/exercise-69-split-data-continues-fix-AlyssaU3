@@ -30,16 +30,18 @@ def split_date_continues():
     df = load_data() #Contains the full data with blank columns and rows removed
     split_data = split_date(df) #Contains the split date information, as we did in exercise 67
 
-    #Write your code below
+    df= df.drop(["Päivämäärä"], axis=1)
+    df=pd.concat([split_data, df], axis=1)
+    
     return df
 
 def main():
     df = split_date_continues()
 
     #Uncomment these lines after you have completed your task
-    # print("Shape:", df.shape)
-    # print("Column names:\n", df.columns)
-    # print(df.head())
+    print("Shape:", df.shape)
+    print("Column names:\n", df.columns)
+    print(df.head())
 
 
 if __name__ == "__main__":
